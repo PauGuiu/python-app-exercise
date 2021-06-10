@@ -2,6 +2,7 @@ from sys import stderr
 from .APIManagement import APIManagement
 from .FileHandle import FileHandle
 
+#The aim of this class is 
 
 class ApiService:
 
@@ -16,13 +17,13 @@ class ApiService:
         url = 'https://jsonplaceholder.typicode.com/todos/'
 
         try:
-            # Get Info
+            # Get Info from API and create a JSON object
             print('Get TODOS from the API...')
             API = APIManagement(url)        
             info = API.GetInfo()        
             print('Success\n')
         
-            # Extracr Info and Generate File
+            # Extract JSON Elements and Generate CSV Files
             print('Extracting data and generating files...\n')
             for jsonElement in info:            
                 handle = FileHandle(jsonElement)
@@ -33,7 +34,9 @@ class ApiService:
             print('\nApiService Finished.')
         
         except IOError:
+                #Handle I/O Exceptions
                 print("An I/O exception occurred while creating a file.")
         except:
+                #Handle Unknown Exceptions
                 print("Some exception occurred.")      
        
