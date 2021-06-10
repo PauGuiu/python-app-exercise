@@ -2,6 +2,8 @@ from datetime import date
 import csv
 import os
 
+#Note:The Pandas library has not been chosen for efficiency reasons. I usually use it for the treatment of more extensive data. 
+
 #Class designed to handle JSON information and generate CSV Files.
 
 class FileHandle:
