@@ -2,6 +2,8 @@ from datetime import date
 import csv
 import os
 
+#Class designed to handle JSON information and generate CSV Files.
+
 class FileHandle:
 
 	### Variables ###
@@ -12,6 +14,7 @@ class FileHandle:
     def __init__(self):
         pass
 
+    #Initialize local variables generating relative path file and filename.
     def __init__(self, jsonElement):
         self.jsonElement = jsonElement
         #Relative Path
@@ -33,6 +36,9 @@ class FileHandle:
 
     ### Methods ###
 
+    #JSONElementtoCSVFile: Generate CSV files with JSON information.
+    #Input: Void
+    #Output: Void    
     def JSONElementtoCSVFile(self):        
         csv_file = self.pathFile + self.fileName
 
@@ -40,4 +46,6 @@ class FileHandle:
             w = csv.DictWriter(f, self.jsonElement.keys())
             w.writeheader()
             w.writerow(self.jsonElement)
+
+
 
